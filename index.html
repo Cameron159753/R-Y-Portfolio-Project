@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
     <title>Portfolio Project</title>
 </head>
 <body>
@@ -19,34 +20,90 @@
         </nav>
         
     </header>
-   
+  
     <main id="maindoc">
 
         <!-- Home -->
         <section id="Home">
-                <!-- heading 1 -->
-            <h1>Hi my name is Cameron</h1>
-                    <!-- paragraph -->
-               <p>I am a frontend and WordPress Developer</p>
-                    <!-- image with line styling  -->
-               <img src="/Pictures/selfie.jpg" alt="me" style="width: 200px; height: 400px;">
+            <header class="hero">
+
+                <div class="hero-container">
+                         <!-- socials -->
+                    <aside class="socials">
+                        <a href="#"><img src="icons/linkedin.svg" alt="LinkedIn"></a>
+                        <a href="#"><img src="icons/github.svg" alt="GitHub"></a>
+                        <a href="#"><img src="icons/email.svg" alt="Email"></a>
+                    </aside>
+
+                <div class="hero-content">
+                    <h1>I'm Cameron Bowers</h1>
+                    <h2>An Aspiring Developer</h2>
+                        <a href="#" class="cta">
+                            SEE MY CV
+                        </a>
+                </div>
+                        <!-- image of me -->
+                    <figure class="hero-image">
+                        <img src="/Pictures/selfie.jpg" alt="Cameron Bowers">
+                    </figure>
+
+                </div>
+
+            </header>
         </section>
 
         <!-- About -->
-        <section id="About">
-            <h2><u>About Me</u></h2>
-                <p>
-                   
-                    I am a 24 year old aspiring full-stack and WordPress developer who loves learning new things, born and raised in South Africa. 
-                    I attended Bergvliet High school and matriculated in 2019. 
-                    I did a 4 month course at Codespace and a 1 year course at Lifechoices to pursue my passion of coding.
-                </p>
-                <p>
-                    I am a Web Developer, and I’m very passionate and dedicated to my work. With my experience as a Web developer, 
-                    I have acquired the skills and the ability to make any project come to life.
-                </p>
-        </section>
+    <section id="About">
+        <h1>About </h1>
+        <div class="about">
+            <div class="about-container">
 
+                <!-- LEFT COLUMN -->
+                <article class="about-left">
+
+                    <h2>About Me</h2>
+                    <div class="divider"></div>
+
+                        <p>
+                            I am a 21 year old aspiring full-stack and WordPress developer who loves
+                            learning new things, born and raised in South Africa. I attended
+                            Bergvliet High school and matriculated in 2019. I did a 4 month course
+                            at Codespace and a 1 year course at Lifechoices to pursue my passion
+                            of coding.
+                        </p>
+
+                <ul class="about-details">
+                    <li><strong>Name:</strong> Cameron Bowers</li>
+                    <li><strong>Residence:</strong> South Africa, Cape Town</li>
+                </ul>
+
+                </article>
+
+
+                <!-- RIGHT COLUMN -->
+                <article class="about-right">
+
+                    <h2>Developing With a Passion</h2>
+                    <div class="divider"></div>
+
+                        <p>
+                            I am a Web Developer, and I'm very passionate and dedicated to my work.
+                            With my experience as a Web developer, I have acquired the skills and
+                            the ability to make any project come to life.
+                        </p>
+
+                <ul class="contact">
+                    <li><strong>Email:</strong> cameronbowers22@gmail.com</li>
+                    <li><strong>Phone:</strong> (+27) 72 964 4591</li>
+                </ul>
+
+      
+
+                </article>
+
+            </div>
+        </div>
+</section>
         <!-- Experience -->
         <section id="Experience">
             <h2><u>Work Experience</u></h2>
@@ -129,3 +186,4 @@
 
 </body>
 </html>
+
