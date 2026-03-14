@@ -6,7 +6,7 @@ font-family: Arial, Helvetica, sans-serif;
 }
 
 body{
-color:#24305e;
+/* color:#24305e; */
 /* Add space so content isn't hidden under navbar */
 padding-top:80px;
 }
@@ -49,6 +49,7 @@ max-width:500px;
 font-size:56px;
 font-weight:700;
 margin-bottom:10px;
+color:#2f3a63;
 }
 
 .hero-content h2{
@@ -62,7 +63,7 @@ color:#2f3a63;
 
 .cta{
 display:inline-block;
-background:#ef6b63;
+background:#0077ff;
 color:white;
 padding:14px 32px;
 border-radius:6px;
@@ -73,7 +74,7 @@ transition:0.3s;
 }
 
 .cta:hover{
-background:#e45b52;
+background:#046de6;
 }
 
 /* PERSON IMAGE */
@@ -147,7 +148,7 @@ margin:20px 0 30px 0;
 line-height:1.8;
 margin-bottom:30px;
 font-size:18px;
-color:#555;
+color: black;
 }
 
 /* DETAILS */
@@ -180,6 +181,7 @@ font-size:28px;
 .timeline{
     padding:60px 20px;
     text-align:center;
+    color:#2f3a63;
 }
 
 .timeline-container{
@@ -223,6 +225,7 @@ font-size:28px;
 .timeline-item p{
     font-size:18px;
     line-height:1.4;
+    color: #000;
 }
 /* MOBILE VERSION */
 
@@ -265,6 +268,7 @@ font-size:28px;
 
 .projects{
   padding:80px 10%;
+  color:#2f3a63;
   
 }
 
@@ -379,6 +383,7 @@ font-size:28px;
 .testimonials{
   padding:80px 20px;
   text-align:center;
+  color:#2f3a63;
 }
 
 .testimonials h2{
@@ -436,6 +441,7 @@ font-size:28px;
 #Contact{
     padding:80px 20px;
     text-align:center;
+    color:#2f3a63;
 }
 
 #Contact h2{
