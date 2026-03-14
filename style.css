@@ -7,6 +7,8 @@ font-family: Arial, Helvetica, sans-serif;
 
 body{
 color:#24305e;
+/* Add space so content isn't hidden under navbar */
+padding-top:80px;
 }
 
                     /************************************************************ HOME *******************************************************/
@@ -167,6 +169,496 @@ gap:50px;
 
 .about h2{
 font-size:28px;
+}
+
+}
+
+                        /************************************************************ TIMELINE *******************************************************/
+
+
+
+.timeline{
+    padding:60px 20px;
+    text-align:center;
+}
+
+.timeline-container{
+    position:relative;
+    display:flex;
+    justify-content:space-between;
+    margin-top:50px;
+}
+
+/* Horizontal line */
+.timeline-container::before{
+    content:"";
+    position:absolute;
+    top:25px;
+    left:0;
+    width:100%;
+    height:4px;
+    background:#ccc;
+    z-index:0;
+}
+
+.timeline-item{
+    position:relative;
+    width:16%;
+    z-index:1;
+}
+
+.timeline-dot{
+    width:18px;
+    height:18px;
+    background:#0077ff;
+    border-radius:50%;
+    margin:0 auto 10px auto;
+}
+
+.timeline-item h3{
+    margin:10px 0;
+    color:#0077ff;
+}
+
+.timeline-item p{
+    font-size:18px;
+    line-height:1.4;
+}
+/* MOBILE VERSION */
+
+@media (max-width: 768px){
+
+.timeline-container{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.timeline-container::before{
+    left:8px;
+    top:0;
+    height:100%;
+    width:4px;
+}
+
+.timeline-item{
+    width:100%;
+    padding-left:30px;
+    margin-bottom:40px;
+}
+
+.timeline-dot{
+    position:absolute;
+    left:0;
+    top:5px;
+}
+
+.timeline-item h3{
+    margin-top:0;
+}
+
+}
+
+
+                        /************************************************************ PROJECTS *******************************************************/
+
+/* Section */
+
+.projects{
+  padding:80px 10%;
+  
+}
+
+.section-title{
+  text-align:center;
+  font-size:2.5rem;
+  margin-bottom:60px;
+}
+
+/* Responsive Grid */
+
+.projects-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+  gap:30px;
+}
+
+/* Card */
+
+.project-card{
+  border-radius:12px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Image */
+
+.project-image{
+  position:relative;
+}
+
+.project-image img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  display:block;
+  transition:transform 0.5s ease;
+}
+
+/* Overlay */
+
+.project-overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.75);
+  color:white;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+
+  padding:20px;
+
+  opacity:0;
+  transition:opacity 0.4s ease;
+}
+
+/* Hover Animation */
+
+.project-card:hover img{
+  transform:scale(1.1);
+}
+
+.project-card:hover .project-overlay{
+  opacity:1;
+}
+
+/* Links */
+
+.project-links{
+  margin-top:15px;
+  display:flex;
+  gap:15px;
+}
+
+.project-links a{
+  padding:8px 16px;
+  background:#0077ff;
+  color:white;
+  text-decoration:none;
+  border-radius:6px;
+  font-size:14px;
+  transition:background 0.3s;
+}
+
+.project-links a:hover{
+  background:#0056cc;
+}
+
+/* Mobile Optimization */
+
+@media (max-width:768px){
+
+  .section-title{
+    font-size:2rem;
+  }
+
+  .project-image img{
+    height:220px;
+  }
+
+}
+
+                        /************************************************************ TESTIMONIALS *******************************************************/
+
+.testimonials{
+  padding:80px 20px;
+  text-align:center;
+}
+
+.testimonials h2{
+  font-size:36px;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  color:#666;
+  margin-bottom:50px;
+}
+
+/* Grid layout */
+
+.testimonial-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+  gap:30px;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* Card */
+
+.testimonial-card{
+  background:white;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.12);
+}
+
+.testimonial-text{
+  font-size:16px;
+  line-height:1.6;
+  color:#444;
+  margin-bottom:20px;
+}
+
+.testimonial-author h4{
+  color:#0077ff;
+  font-size:18px;
+}
+
+
+                        /************************************************************ CONTACT *******************************************************/
+
+
+
+#Contact{
+    padding:80px 20px;
+    text-align:center;
+}
+
+#Contact h2{
+    font-size:36px;
+    margin-bottom:40px;
+}
+
+/* Form Card */
+
+.contact-form{
+    max-width:600px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* Form Groups */
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    text-align:left;
+    margin-bottom:20px;
+}
+
+.form-group label{
+    margin-bottom:6px;
+    font-weight:600;
+    color:#333;
+}
+
+/* Inputs */
+
+.form-group input,
+.form-group textarea{
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ddd;
+    font-size:15px;
+    transition:all 0.3s ease;
+}
+
+/* Focus effect */
+
+.form-group input:focus,
+.form-group textarea:focus{
+    outline:none;
+    border-color:#0077ff;
+    box-shadow:0 0 5px rgba(0,119,255,0.3);
+}
+
+/* Button */
+
+.contact-form button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:8px;
+    background:#0077ff;
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:all 0.3s ease;
+}
+
+.contact-form button:hover{
+    background:#005fcc;
+    transform:translateY(-2px);
+}
+
+/* Mobile */
+
+@media (max-width:600px){
+
+.contact-form{
+    padding:25px;
+}
+
+#Contact h2{
+    font-size:28px;
+}
+
+}
+
+
+                        /************************************************************ FOOTER *******************************************************/
+
+.footer{
+    background:#111;
+    color:#fff;
+    padding:30px 20px;
+}
+
+.footer-container{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.footer-name{
+    font-size:14px;
+}
+
+/* Navigation */
+
+.footer-links{
+    list-style:none;
+    display:flex;
+    gap:20px;
+    padding:0;
+}
+
+.footer-links a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.footer-links a:hover{
+    color:#0077ff;
+}
+
+/* Socials */
+
+.footer-socials a{
+    color:#ddd;
+    margin-left:15px;
+    text-decoration:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.footer-socials a:hover{
+    color:#0077ff;
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+.footer-container{
+    flex-direction:column;
+    gap:15px;
+    text-align:center;
+}
+
+.footer-socials a{
+    margin:0 8px;
+}
+
+}
+
+
+                        /************************************************************ NAVBAR *******************************************************/
+
+#navbar{
+    background:#111;
+    padding:20px 0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:35px;
+
+    position:fixed;   /* makes it stick */
+    top:0;
+    left:0;
+    width:100%;
+
+    z-index:1000;
+}
+
+/* Nav Links */
+
+.nav-link{
+    color:#ddd;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:500;
+    position:relative;
+    transition:color 0.3s ease;
+}
+
+/* Hover color */
+
+.nav-link:hover{
+    color:#0077ff;
+}
+
+/* Animated underline */
+
+.nav-link::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:2px;
+    left:0;
+    bottom:-6px;
+    background:#0077ff;
+    transition:width 0.3s ease;
+}
+
+.nav-link:hover::after{
+    width:100%;
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+#navbar{
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.nav-link{
+    font-size:14px;
 }
 
 }
