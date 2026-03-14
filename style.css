@@ -6,7 +6,6 @@ font-family: Arial, Helvetica, sans-serif;
 }
 
 body{
-/* color:#24305e; */
 /* Add space so content isn't hidden under navbar */
 padding-top:80px;
 }
@@ -118,7 +117,10 @@ font-size:32px;
 .about{
 padding:80px 10%;
 }
-
+/* To make the validator happy :) */
+.about h1{
+    display: none;
+}
 .about-container{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -182,6 +184,10 @@ font-size:28px;
     padding:60px 20px;
     text-align:center;
     color:#2f3a63;
+}
+
+.timeline h2{
+    font-size: 38px;
 }
 
 .timeline-container{
@@ -428,7 +434,7 @@ font-size:28px;
   margin-bottom:20px;
 }
 
-.testimonial-author h4{
+.testimonial-author h3{
   color:#0077ff;
   font-size:18px;
 }
