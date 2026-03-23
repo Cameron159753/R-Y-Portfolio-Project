@@ -10,6 +10,10 @@ body{
 padding-top:80px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
                     /************************************************************ HOME *******************************************************/
 
 .hero-container{
@@ -674,3 +678,60 @@ font-size:28px;
 }
 
 }
+
+/* Burger button */
+
+.burger{
+    display:none;
+    flex-direction:column;
+    cursor:pointer;
+    gap:5px;
+}
+
+.burger span{
+    width:25px;
+    height:3px;
+    background:#fff;
+    transition:0.3s;
+}
+
+/* Wrap links */
+
+.nav-menu{
+    display:flex;
+    gap:35px;
+}
+
+/* MOBILE MENU */
+
+@media (max-width:768px){
+
+    #navbar{
+        justify-content:space-between;
+        padding:20px;
+    }
+
+    .burger{
+        display:flex;
+    }
+  
+     .nav-menu{
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:#111;
+
+        flex-direction:column;
+        align-items:center;
+        gap:20px;
+
+        padding:20px 0;
+
+        display:none; /* hidden by default */
+    } 
+
+     .nav-menu.active{
+        display:flex;
+    }
+}  

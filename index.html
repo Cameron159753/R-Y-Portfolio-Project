@@ -11,12 +11,22 @@
 
         <!-- navigation menu  -->
         <nav id="navbar">
-            <a class = "nav-link" href ="#Home"> Home </a>
-            <a class = "nav-link" href ="#About"> About </a>
-            <a class = "nav-link" href ="#Experience"> Experience </a>
-            <a class = "nav-link" href ="#Projects"> Projects </a>
-            <a class = "nav-link" href ="#Testimonials"> Testimonials </a>
-            <a class = "nav-link" href ="#Contact"> Contact </a>
+
+            <div class="burger" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        <div class="nav-menu" id="nav-menu">
+            <a class="nav-link" href="#Home">Home</a>
+            <a class="nav-link" href="#About">About</a>
+            <a class="nav-link" href="#Experience">Experience</a>
+            <a class="nav-link" href="#Projects">Projects</a>
+            <a class="nav-link" href="#Testimonials">Testimonials</a>
+            <a class="nav-link" href="#Contact">Contact</a>
+        </div>
+
         </nav>
         
     </header>
@@ -311,4 +321,31 @@
 
 </body>
 </html>
+<script>
+const burger = document.getElementById("burger");
+const navMenu = document.getElementById("nav-menu");
+const navLinks = document.querySelectorAll(".nav-link");
 
+// Toggle menu
+burger.addEventListener("click", (e) => {
+    e.stopPropagation(); // prevent triggering document click
+    navMenu.classList.toggle("active");
+});
+
+// Auto-close when clicking a link
+navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+    });
+});
+
+// Close when clicking outside
+document.addEventListener("click", (e) => {
+    const isClickInsideMenu = navMenu.contains(e.target);
+    const isClickBurger = burger.contains(e.target);
+
+    if (!isClickInsideMenu && !isClickBurger) {
+        navMenu.classList.remove("active");
+    }
+});
+</script>
