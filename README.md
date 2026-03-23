@@ -11,6 +11,7 @@ I searched for different font and I liked Lato so i used it.
 The colours was also used from previous portfolio. 
 Challenges I faced was coming up with a new design, trying to accommodate the validators needs with the headings and the order of headings with html.
 There was no problems with the css validator. 
+
 PART2-
 I decided that based on piror knowledge, the content should fall underneath eachother while still being able to read the content.
 The layout tools were used to keep the content inline and make it so the content show on screen and not hidden
