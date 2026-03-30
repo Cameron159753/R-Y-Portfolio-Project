@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
     <title>Portfolio Project</title>
 </head>
 <body>
@@ -273,26 +274,31 @@
         <section id="Contact">
             <h2>Contact Me</h2>
 
-    <form class="contact-form">
+            <form class="contact-form">
 
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="username" required placeholder="Your Name">
-        </div>
-
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="user-email" required placeholder="your.email@example.com">
-        </div>
-
-        <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="user-message" rows="5" required placeholder="Type your message here..."></textarea>
-        </div>
-
-        <button type="submit">Send Message</button>
-
-    </form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="username" required placeholder="Your Name">
+                </div>
+            
+                        <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="user-email" required placeholder="your.email@example.com">
+                </div>
+            
+                        <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="user-message" rows="5" required placeholder="Type your message here..."></textarea>
+                </div>
+                    <button type="submit">Send Message</button>
+            </form>
+                <div id="popup" class="popup">
+                    <div class="popup-content">
+                        <h3>Message Sent </h3>
+                            <p>Thanks! I'll get back to you soon.</p>
+                        <button id="closePopup">Close</button>
+                    </div>
+                </div>
         </section>
         
     </main>
@@ -320,32 +326,6 @@
     </footer>
 
 </body>
+<script src="/app.js"></script>
 </html>
-<script>
-const burger = document.getElementById("burger");
-const navMenu = document.getElementById("nav-menu");
-const navLinks = document.querySelectorAll(".nav-link");
-
-// Toggle menu
-burger.addEventListener("click", (e) => {
-    e.stopPropagation(); // prevent triggering document click
-    navMenu.classList.toggle("active");
-});
-
-// Auto-close when clicking a link
-navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-        navMenu.classList.remove("active");
-    });
-});
-
-// Close when clicking outside
-document.addEventListener("click", (e) => {
-    const isClickInsideMenu = navMenu.contains(e.target);
-    const isClickBurger = burger.contains(e.target);
-
-    if (!isClickInsideMenu && !isClickBurger) {
-        navMenu.classList.remove("active");
-    }
-});
-</script>
+<!-- Popup Modal -->
