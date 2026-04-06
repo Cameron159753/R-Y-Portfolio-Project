@@ -22,3 +22,11 @@ There were no challenges, the mobile and transitions were easy to implement and 
 JS-
 The popup is for the contact form button. Information has to be filled out then upon pressing the send button a popup message will appear showing that the message has been sent and all information that was put in will be cleared.
 I chose this interaction because it made sense to have a popup there to showcase information has been sent and its the only spot where a popup makes sense.
+
+Contact Form-
+The form is a contact form used to get into contact with me. It works by typing in your name and email and a message.
+I used the console to check for errors.
+The error messages appear in order of email then the name and message at the same time.
+the email error message is more like a popup saying you missing an '@' or email isnt put in properly and with the other 2, a red message will appear.
+Decision and challenges I faced was trying to decided how or what i wanted my errors messages to be and look like eg. having as an alert or something else
+
