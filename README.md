@@ -17,4 +17,8 @@ I decided that based on piror knowledge, the content should fall underneath each
 The layout tools were used to keep the content inline and make it so the content show on screen and not hidden
 The girds and flexboxs were used throughout the site like the About, Testimonials and Projects
 The nav design was simple. Just added a background and make the text white and added a hover to show which section you trying to navigate to. (Upon writing this I should probably add an active function to show what section you on)
-There were no challenges, the mobile and transitions were easy to implement and there were no issues with the validator
+There were no challenges, the mobile and transitions were easy to implement and there were no issues with the validator.
+
+JS-
+The popup is for the contact form button. Information has to be filled out then upon pressing the send button a popup message will appear showing that the message has been sent and all information that was put in will be cleared.
+I chose this interaction because it made sense to have a popup there to showcase information has been sent and its the only spot where a popup makes sense.
