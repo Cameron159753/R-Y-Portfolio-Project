@@ -25,93 +25,54 @@ document.addEventListener("click", (e) => {
     }
 });
 
-// POPUP
-const form = document.querySelector(".contact-form");
-const popup = document.getElementById("popup");
-const closeBtn = document.getElementById("closePopup");
 
-closeBtn.addEventListener("click", function(){
-    popup.classList.remove("active");
-});
 
-form.addEventListener("submit", function(e){
-    e.preventDefault();
+// VUE CONTACT FORM
+const { createApp } = Vue;
 
-    const nameInput = document.getElementById("name");
-    const emailInput = document.getElementById("email");
-    const messageInput = document.getElementById("message");
+createApp({
+  data() {
+    return {
+      form: {
+        name: "",
+        email: "",
+        message: ""
+      },
+      errors: {},
+      successMessage: "",
+      showPopup: false
+    };
+  },
+  methods: {
+    validateForm() {
+      this.errors = {};
 
-    const name = nameInput.value.trim();
-    const email = emailInput.value.trim();
-    const message = messageInput.value.trim();
+      if (!this.form.name) {
+        this.errors.name = "Name is required";
+      }
 
-    const namePattern = /^[A-Za-z\s]+$/;
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!this.form.email) {
+        this.errors.email = "Email is required";
+      } else if (!this.form.email.includes("@")) {
+        this.errors.email = "Enter a valid email";
+      }
 
-    let isValid = true;
+      if (!this.form.message) {
+        this.errors.message = "Message is required";
+      }
 
-    // Helper functions
-    function setError(input, message) {
-        const formGroup = input.parentElement;
-        const errorDisplay = formGroup.querySelector(".error-message");
+      return Object.keys(this.errors).length === 0;
+    },
 
-        errorDisplay.innerText = message;
-        errorDisplay.style.display = "block";
+    handleSubmit() {
+      if (this.validateForm()) {
+        console.log("Form submitted:", this.form);
 
-        formGroup.classList.add("error");
-        formGroup.classList.remove("success");
+        this.successMessage = "Message sent successfully!";
+        this.showPopup = true; // 👈 triggers popup
+
+        this.form = { name: "", email: "", message: "" };
+      }
     }
-
-    function setSuccess(input) {
-        const formGroup = input.parentElement;
-        const errorDisplay = formGroup.querySelector(".error-message");
-
-        errorDisplay.innerText = "";
-        errorDisplay.style.display = "none";
-
-        formGroup.classList.remove("error");
-        formGroup.classList.add("success");
-    }
-
-    // Name validation
-    if (name === "") {
-        setError(nameInput, "Name cannot be empty");
-        isValid = false;
-    } else if (!namePattern.test(name)) {
-        setError(nameInput, "Only letters allowed");
-        isValid = false;
-    } else {
-        setSuccess(nameInput);
-    }
-
-    // Email validation
-    if (!emailPattern.test(email)) {
-        setError(emailInput, "Enter a valid email");
-        isValid = false;
-    } else {
-        setSuccess(emailInput);
-    }
-
-    // Message validation
-    if (message === "") {
-        setError(messageInput, "Message cannot be empty");
-        isValid = false;
-    } else if (message.length < 10) {
-        setError(messageInput, "At least 10 characters required");
-        isValid = false;
-    } else {
-        setSuccess(messageInput);
-    }
-
-    // If valid → show popup
-    if (isValid) {
-        popup.classList.add("active");
-        form.reset();
-
-        // remove success styles after reset
-        document.querySelectorAll(".form-group").forEach(group => {
-            group.classList.remove("success");
-        });
-    }
-});
-
+  }
+}).mount("#app");
