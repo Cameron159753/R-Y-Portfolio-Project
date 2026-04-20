@@ -30,3 +30,9 @@ The error messages appear in order of email then the name and message at the sam
 the email error message is more like a popup saying you missing an '@' or email isnt put in properly and with the other 2, a red message will appear.
 Decision and challenges I faced was trying to decided how or what i wanted my errors messages to be and look like eg. having as an alert or something else
 
+Vue Contact Form-
+Had to do a lot of googling and watch youtube videos on how to implement vue code
+Used v-if for the error message and v-model for the details. I tried to add it to the popup but broke it instead.
+Had to fix a lot of errors due to having multiple forms and had to remove previous js like the addEventListener.
+
+
