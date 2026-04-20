@@ -3,338 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.js"></script>
     <title>Portfolio Project</title>
 </head>
 <body>
-    <header>
-
-        <!-- navigation menu  -->
+    <div id="app">
+        <!-- navigation menu with Vue Router -->
         <nav id="navbar">
-
-            <div class="burger" id="burger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-
-        <div class="nav-menu" id="nav-menu">
-            <a class="nav-link" href="#Home">Home</a>
-            <a class="nav-link" href="#About">About</a>
-            <a class="nav-link" href="#Experience">Experience</a>
-            <a class="nav-link" href="#Projects">Projects</a>
-            <a class="nav-link" href="#Testimonials">Testimonials</a>
-            <a class="nav-link" href="#Contact">Contact</a>
-        </div>
-
+            <router-link to="/" class="nav-link" custom v-slot="{ navigate, isActive }">
+                <button @click="navigate" :class="['nav-link', { 'router-link-active': isActive }]">Home</button>
+            </router-link>
+            <router-link to="/about" class="nav-link" custom v-slot="{ navigate, isActive }">
+                <button @click="navigate" :class="['nav-link', { 'router-link-active': isActive }]">About</button>
+            </router-link>
+            <router-link to="/contact" class="nav-link" custom v-slot="{ navigate, isActive }">
+                <button @click="navigate" :class="['nav-link', { 'router-link-active': isActive }]">Contact</button>
+            </router-link>
         </nav>
-        
-    </header>
-  
-    <main id="maindoc">
 
-        <!-- Home -->
-        <section id="Home">
-            <header class="hero">
-
-                <div class="hero-container">
-                         <!-- socials -->
-                    <aside class="socials">
-                        <a href="#"><img src="/Pictures/icons/linkedin-svgrepo-com.svg" alt="LinkedIn"></a>
-                        <a href="#"><img src="/Pictures/icons/github-svgrepo-com.svg" alt="GitHub"></a>
-                        <a href="#"><img src="/Pictures/icons/email-1573-svgrepo-com.svg" alt="Email"></a>
-                    </aside>
-
-                <div class="hero-content">
-                    <h1>I'm Cameron Bowers</h1>
-                    <h2>An Aspiring Developer</h2>
-                        <a href="#" class="cta">
-                            SEE MY CV
-                        </a>
-                </div>
-                        <!-- image of me -->
-                    <figure class="hero-image">
-                        <img src="/Pictures/selfie.jpg" alt="Cameron Bowers">
-                    </figure>
-
-                </div>
-
-            </header>
-        </section>
-
-        <!-- About -->
-        <section id="About"> 
-        <div class="about">
-            <h1>About Me</h1>
-            <div class="about-container">
-
-                <!-- LEFT COLUMN -->
-                <article class="about-left">
-
-                    <h2>About Me</h2>
-                    <div class="divider"></div>
-
-                        <p>
-                            I am a 21 year old aspiring full-stack and WordPress developer who loves
-                            learning new things, born and raised in South Africa. I attended
-                            Bergvliet High school and matriculated in 2019. I did a 4 month course
-                            at Codespace and a 1 year course at Lifechoices to pursue my passion
-                            of coding.
-                        </p>
-
-                <ul class="about-details">
-                    <li><strong>Name:</strong> Cameron Bowers</li>
-                    <li><strong>Residence:</strong> South Africa, Cape Town</li>
-                </ul>
-
-                </article>
-
-
-                <!-- RIGHT COLUMN -->
-                <article class="about-right">
-
-                    <h2>Developing With a Passion</h2>
-                    <div class="divider"></div>
-
-                        <p>
-                            I am a Web Developer, and I'm very passionate and dedicated to my work.
-                            With my experience as a Web developer, I have acquired the skills and
-                            the ability to make any project come to life.
-                        </p>
-
-                <ul class="contact">
-                    <li><strong>Email:</strong> cameronbowers22@gmail.com</li>
-                    <li><strong>Phone:</strong> (+27) 72 964 4591</li>
-                </ul>
-
-      
-
-                </article>
-
-            </div>
-        </div>
-        </section>
-        <!-- Experience -->
-        <section id="Experience">
-            <div class="timeline">
-                <h2>My Coding Journey</h2>
-
-                <div class="timeline-container">
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                            <h3>2019</h3>
-                                <p>The end of my high school career and the start of my coding journey where I learnt the basics of web development such as HTML and CSS.</p>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                            <h3>2020</h3>
-                                <p>I went to Codespace to further pursue my coding journey and completed a 4 month PHP course.</p>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                            <h3>2021</h3>
-                                <p>After Codespace I started Lifechoices to further my knowledge of coding and gain work experience.</p>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                            <h3>2022</h3>
-                                <p>Graduated at Lifechoices as a full-stack Web and WordPress Developer and began searching for a job.</p>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                            <h3>2023</h3>
-                                <p>Started freelancing in WordPress with a friend and continued working on freelance projects.</p>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                            <h3>2026</h3>
-                                <p>Started the Red & Yellow frontend course while continuing freelancing and building projects.</p>
-                    </div>
-
-                </div>
-            </div>
-            
-        </section>
-
-        <!-- Projects -->
-        <section id="Projects">
-                <div class="projects" id="projects">
-
-                    <h2 class="section-title">My Projects</h2>
-
-                    <div class="projects-container">
-
-                        <article class="project-card">
-                            <div class="project-image">
-                                <img src="/Pictures/Bluemoon.PNG" alt="Bluemoon Website">
-                                    <div class="project-overlay">
-                                        <h3>Bluemoon Tobacco</h3>
-                                            <p>WordPress Website</p>
-                                                <div class="project-links">
-                                                    <a href="https://www.bluemoontabacco.co.za/" target="_blank">Live</a>
-                                                    <a href="#">Code</a>
-                                                </div>
-                                    </div>
-                            </div>
-                        </article>
-
-                        <article class="project-card">
-                            <div class="project-image">
-                                <img src="/Pictures/Razzle.PNG" alt="Razzle Dazzle Rugby Website">
-                                    <div class="project-overlay">
-                                        <h3>Razzle Dazzle Rugby</h3>
-                                            <p>WordPress website</p>
-                                                <div class="project-links">
-                                                    <a href="https://razzlerugby.co.za/" target="_blank">Live</a>
-                                                    <a href="#">Code</a>
-                                                </div>
-                                    </div>
-                            </div>
-                        </article>
-
-                        <article class="project-card">
-                            <div class="project-image">
-                                <img src="/Pictures/Haarts.PNG" alt="Haarts Cleaning Website">
-                                    <div class="project-overlay">
-                                        <h3>Haartz Cleaning</h3>
-                                            <p>WordPress website</p>
-                                                <div class="project-links">
-                                                    <a href="https://www.haartzcleaning.co.za/" target="_blank">Live</a>
-                                                    <a href="#">Code</a>
-                                                </div>
-                                    </div>
-                            </div>
-                        </article>
-
-                        <article class="project-card">
-                            <div class="project-image">
-                                <img src="/Pictures/Pondo.PNG" alt="Pondo Tours Website">
-                                    <div class="project-overlay">
-                                        <h3>Pondo Tours</h3>
-                                            <p>WordPress website</p>
-                                                <div class="project-links">
-                                                    <a href="https://pondotours.co.za/" target="_blank">Live</a>
-                                                    <a href="#">Code</a>
-                                                </div>
-                                    </div>
-                            </div>
-                        </article>
-                    </div>
-
-                </div>
-        </section>
-
-        <!-- Testimonials -->
-        <section id="Testimonials">
-           <div class="testimonials">
-            <h2>Testimonials</h2>
-                <p class="subtitle">What people say about working with me</p>
-
-                <div class="testimonial-container">
-
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">
-                            "Cameron can be described as a smart worker, so much different from any other clients you’ll have. He achieves expectations and even surpasses them. He would be a great addition to your team."
-                        </p>
-                        <div class="testimonial-author">
-                            <h3>Dalarno Van Rooi</h3>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">
-                            "Cameron has a natural talent when it comes to solving technical problems. He has great attention to detail."
-                        </p>
-                        <div class="testimonial-author">
-                            <h3>Alex Sexwale</h3>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">
-                            "Cameron pays attention to improving both the aesthetics and functionality of a site. He works through issues as they arise and takes tremendous pride in his work. I wouldn’t hesitate to recommend him."
-                        </p>
-                            <div class="testimonial-author">
-                                <h3>Yaasien Salam</h3>
-                            </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-        
-        <!-- Contact -->
-        <section id="Contact">
-             <h2>Contact Me</h2>
-        <div id="app">
-            <form @submit.prevent="handleSubmit" class="contact-form">
-                <div :class="['form-group', errors.name ? 'error' : (form.name ? 'success' : '')]">
-                    <label for="name">Name</label>
-                    <input type="text" v-model="form.name" id="name" placeholder="Your Name">
-                    <span class="error-message" v-if="errors.name">{{ errors.name }}</span>
-                </div>
-
-                <div :class="['form-group', errors.email ? 'error' : (form.email && form.email.includes('@') ? 'success' : '')]">
-                    <label for="email">Email</label>
-                    <input type="email" v-model="form.email" id="email" placeholder="your.email@example.com">
-                    <span class="error-message" v-if="errors.email">{{ errors.email }}</span>
-                </div>
-
-                <div :class="['form-group', errors.message ? 'error' : (form.message ? 'success' : '')]">
-                    <label for="message">Message</label>
-                    <textarea v-model="form.message" id="message" rows="5" placeholder="Type your message here..."></textarea>
-                    <span class="error-message" v-if="errors.message">{{ errors.message }}</span>
-                </div>
-
-                <button type="submit">Send Message</button>
-
-                <p v-if="successMessage" class="success">{{ successMessage }}</p>
-            </form>
-
-          
-            <popupnotification 
-                :visible="showPopup" 
-                title="Message Sent" 
-                message="Thanks! I'll get back to you soon."
-                button-text="Got it"
-                @close="showPopup = false"
-            />
-        </div>
-        </section> 
-        
-    </main>
+        <!-- Router View with transition -->
+        <router-view v-slot="{ Component }">
+            <transition name="fade" mode="out-in">
+                <component :is="Component" />
+            </transition>
+        </router-view>
 
         <!-- footer -->
-    <footer class="footer">
-    <div class="footer-container">
-
-        <p class="footer-name">© 2026 Cameron Bowers</p>
-
-        <ul class="footer-links">
-            <li><a href="#Home">Home</a></li>
-            <li><a href="#About">About</a></li>
-            <li><a href="#Projects">Projects</a></li>
-            <li><a href="#Contact">Contact</a></li>
-        </ul>
-
-        <div class="footer-socials">
-            <a href="#">LinkedIn</a>
-            <a href="#">GitHub</a>
-            <a href="#">Email</a>
-        </div>
-
+        <footer class="footer">
+            <div class="footer-container">
+                <p class="footer-name">© 2026 Cameron Bowers</p>
+                <ul class="footer-links">
+                    <li><router-link to="/" class="nav-link">Home</router-link></li>
+                    <li><router-link to="/about" class="nav-link">About</router-link></li>
+                    <li><router-link to="/contact" class="nav-link">Contact</router-link></li>
+                </ul>
+                <div class="footer-socials">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">GitHub</a>
+                    <a href="#">Email</a>
+                </div>
+            </div>
+        </footer>
     </div>
-    </footer>
+
 
 </body>
-<script src="/app.js" defer></script>
+<script src="/app.js"></script>
 </html>
-
