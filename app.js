@@ -28,51 +28,138 @@ document.addEventListener("click", (e) => {
 
 
 // VUE CONTACT FORM
-const { createApp } = Vue;
+  const PopupNotification = {
+            name: 'PopupNotification',
+            props: {
+                visible: {
+                    type: Boolean,
+                    default: false
+                },
+                title: {
+                    type: String,
+                    default: "Notification"
+                },
+                message: {
+                    type: String,
+                    default: "This is a reusable popup."
+                },
+                buttonText: {
+                    type: String,
+                    default: "Close"
+                }
+            },
+            emits: ['close'],
+            template: `
+                <div class="reusable-popup-overlay" :class="{ active: visible }" @click.self="handleClose">
+                    <div class="reusable-popup-card">
+                        <h3>{{ title }}</h3>
+                        <p>{{ message }}</p>
+                        <button @click="handleClose">{{ buttonText }}</button>
+                    </div>
+                </div>
+            `,
+            methods: {
+                handleClose() {
+                    this.$emit('close');
+                }
+            }
+        };
 
-createApp({
-  data() {
-    return {
-      form: {
-        name: "",
-        email: "",
-        message: ""
-      },
-      errors: {},
-      successMessage: "",
-      showPopup: false
-    };
-  },
-  methods: {
-    validateForm() {
-      this.errors = {};
+        const InlineAlert = {
+            props: ['type', 'message', 'show'],
+            template: `
+                <div v-if="show" class="inline-alert" :class="'alert-' + type" style="margin-top: 16px; padding: 10px; border-radius: 30px; background: #eef2ff; font-size: 14px; text-align: center;">
+                    {{ message }}
+                </div>
+            `
+        };
 
-      if (!this.form.name) {
-        this.errors.name = "Name is required";
-      }
+        // Create Vue app and register components globally (or locally)
+        const { createApp } = Vue;
 
-      if (!this.form.email) {
-        this.errors.email = "Email is required";
-      } else if (!this.form.email.includes("@")) {
-        this.errors.email = "Enter a valid email";
-      }
+        const app = createApp({
+            data() {
+                return {
+                    form: {
+                        name: "",
+                        email: "",
+                        message: ""
+                    },
+                    errors: {},
+                    successMessage: "",
+                    showPopup: false      // controls the reusable popup component
+                };
+            },
+            methods: {
+                validateForm() {
+                    this.errors = {};
 
-      if (!this.form.message) {
-        this.errors.message = "Message is required";
-      }
+                    if (!this.form.name) {
+                        this.errors.name = "Name is required";
+                    } else if (this.form.name.trim().length < 2) {
+                        this.errors.name = "Name must be at least 2 characters";
+                    }
 
-      return Object.keys(this.errors).length === 0;
-    },
+                    if (!this.form.email) {
+                        this.errors.email = "Email is required";
+                    } else if (!this.form.email.includes("@") || !this.form.email.includes(".")) {
+                        this.errors.email = "Enter a valid email address";
+                    }
 
-    handleSubmit() {
-      if (this.validateForm()) {
-        console.log("Form submitted:", this.form);
+                    if (!this.form.message) {
+                        this.errors.message = "Message is required";
+                    } else if (this.form.message.trim().length < 5) {
+                        this.errors.message = "Message must be at least 5 characters";
+                    }
 
-        this.successMessage = "Message sent successfully!";
-        this.showPopup = true; // 👈 triggers popup
+                    return Object.keys(this.errors).length === 0;
+                },
 
-        this.form = { name: "", email: "", message: "" };
-      }
-    }
-  }
-}).mount("#app");
+                handleSubmit() {
+                    if (this.validateForm()) {
+                        // log submission (mock API call)
+                        console.log("✅ Form submitted successfully:", this.form);
+                        
+                        // show success inline message (optional)
+                        this.successMessage = "Message sent successfully!";
+                        
+                        // trigger the reusable popup component (true = visible)
+                        this.showPopup = true;
+                        
+                        // reset form fields after successful submission
+                        this.form = { name: "", email: "", message: "" };
+                        
+                        // clear success message after 4 seconds (non-intrusive)
+                        setTimeout(() => {
+                            if (this.successMessage) this.successMessage = "";
+                        }, 3000);
+                    } else {
+                        // if validation fails, we keep errors visible and ensure popup is hidden
+                        this.showPopup = false;
+                        this.successMessage = "";
+                        console.warn("Validation errors", this.errors);
+                    }
+                }
+            }
+        });
+
+
+        app.component('popupnotification', PopupNotification);
+
+        app.component('InlineAlert', InlineAlert);
+        
+        // Mount the app to #app
+        app.mount("#app");
+
+        const styleForDemo = document.createElement('style');
+        styleForDemo.textContent = `
+            .inline-alert.alert-success {
+                background: #dcfce7;
+                color: #15803d;
+                border-left: 3px solid #22c55e;
+            }
+            .inline-alert.alert-error {
+                background: #fee2e2;
+                color: #b91c1c;
+            }
+        `;

@@ -273,46 +273,42 @@
         
         <!-- Contact -->
         <section id="Contact">
-            <h2>Contact Me</h2>
-
-            <div id="app">
-                <form @submit.prevent="handleSubmit" class="contact-form">
-                
-                <div class="form-group">
+             <h2>Contact Me</h2>
+        <div id="app">
+            <form @submit.prevent="handleSubmit" class="contact-form">
+                <div :class="['form-group', errors.name ? 'error' : (form.name ? 'success' : '')]">
                     <label for="name">Name</label>
                     <input type="text" v-model="form.name" id="name" placeholder="Your Name">
                     <span class="error-message" v-if="errors.name">{{ errors.name }}</span>
                 </div>
-            
-                <div class="form-group">
+
+                <div :class="['form-group', errors.email ? 'error' : (form.email && form.email.includes('@') ? 'success' : '')]">
                     <label for="email">Email</label>
                     <input type="email" v-model="form.email" id="email" placeholder="your.email@example.com">
                     <span class="error-message" v-if="errors.email">{{ errors.email }}</span>
                 </div>
-            
-                <div class="form-group">
+
+                <div :class="['form-group', errors.message ? 'error' : (form.message ? 'success' : '')]">
                     <label for="message">Message</label>
                     <textarea v-model="form.message" id="message" rows="5" placeholder="Type your message here..."></textarea>
                     <span class="error-message" v-if="errors.message">{{ errors.message }}</span>
                 </div>
-            
+
                 <button type="submit">Send Message</button>
-            
+
                 <p v-if="successMessage" class="success">{{ successMessage }}</p>
-            
-                </form>
-            
-                <!-- Popup Modal controlled by Vue -->
-                <div v-if="showPopup" class="popup">
-                <div class="popup-content">
-                    <h3>Message Sent</h3>
-                    <p>Thanks! I'll get back to you soon.</p>
-                    <button @click="showPopup = false">Close</button>
-                </div>
-                </div>
-            
-            </div>
-        </section>
+            </form>
+
+          
+            <popupnotification 
+                :visible="showPopup" 
+                title="Message Sent" 
+                message="Thanks! I'll get back to you soon."
+                button-text="Got it"
+                @close="showPopup = false"
+            />
+        </div>
+        </section> 
         
     </main>
 
