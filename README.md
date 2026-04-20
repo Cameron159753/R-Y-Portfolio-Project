@@ -35,4 +35,14 @@ Had to do a lot of googling and watch youtube videos on how to implement vue cod
 Used v-if for the error message and v-model for the details. I tried to add it to the popup but broke it instead.
 Had to fix a lot of errors due to having multiple forms and had to remove previous js like the addEventListener.
 
+Vue Router-
+first i got rid of the old nav links then i had to break the page into components, create the routes, setup the router, add the router to the app then lastly sort out the router view to show where pages appear.
+I created 3 pages Home, About and Contact
+I have the landing page, Experience and Testimonials in Home
+-About page has about me and Projects
+-Contact page has the Contact
+challenges i faced besides my laptop not switching on were forgetting that the components must move from your index to your js file and certains code is case sensitive.
+insights i had now- for the structure i probably should of switched experience and projects around.
+Why routing matters in single-page applications - it allows for quicker response time so theres no long loading when going from 1 page to another.
+
 
